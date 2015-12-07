@@ -58,7 +58,7 @@ nmap <leader>j :rightbelow new<CR>
 
 colorscheme molokai
 set t_Co=256 " enable 256 colors in console vim - grey background, proper syntax highlighting etc.
-set gfn=Menlo:h14
+set gfn=Ubuntu\ Mono:h16
 set guioptions-=T "remove toolbar
 
 " start fullscreen
@@ -263,8 +263,13 @@ map <leader>n :call RenameFile()<CR>
 " COMMAND T
 " ---------
 "  defaults to <leader> t
-nmap <leader>t :CtrlP<CR>
-nmap <leader>T :CtrlP<CR>
+nmap <leader>t ::CtrlPClearCache<CR>\|:CtrlP<CR>
+nmap <leader>T ::CtrlPClearCache<CR>\|:CtrlP<CR>
+
+" When opening a file with CtrlP that is already opened, do not even jump to the buffer
+" if it's opened in the current tab - this allows opening the same file in two
+" buffers in the same tab
+let g:ctrlp_switch_buffer = 0
 
 " cf. https://github.com/wincent/Command-T, https://wincent.com/issues/1555, and https://wincent.com/issues/1542
 set wildignore+=*.o,*.obj,.git ",*.jpg,*.gif,*.jpeg,*.png,*.ico
