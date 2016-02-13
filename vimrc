@@ -396,3 +396,6 @@ nnoremap <D-right> g$
 " inoremap <S-D-right> <C-O>vg$
 " vnoremap <D-left> g^
 " vnoremap <D-right> g$
+
+" https://github.com/mxw/vim-jsx#usage
+let g:jsx_ext_required = 0
