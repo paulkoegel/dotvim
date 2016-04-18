@@ -260,7 +260,7 @@ map <leader>n :call RenameFile()<CR>
 "PLUGINS
 "=======
 
-" COMMAND T
+" Ctrl P
 " ---------
 "  defaults to <leader> t
 nmap <leader>t ::CtrlPClearCache<CR>\|:CtrlP<CR>
@@ -270,6 +270,8 @@ nmap <leader>T ::CtrlPClearCache<CR>\|:CtrlP<CR>
 " if it's opened in the current tab - this allows opening the same file in two
 " buffers in the same tab
 let g:ctrlp_switch_buffer = 0
+" exclude files and folders from gitignore for CtrlP.
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " cf. https://github.com/wincent/Command-T, https://wincent.com/issues/1555, and https://wincent.com/issues/1542
 set wildignore+=*.o,*.obj,.git ",*.jpg,*.gif,*.jpeg,*.png,*.ico
@@ -399,3 +401,8 @@ nnoremap <D-right> g$
 
 " https://github.com/mxw/vim-jsx#usage
 let g:jsx_ext_required = 0
+
+" ES6 file type support
+autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
